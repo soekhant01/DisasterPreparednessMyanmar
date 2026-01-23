@@ -1,4 +1,4 @@
-package com.example.disaster.presentation.auth.register
+package com.example.disaster.presentation.auth.login
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -8,12 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -25,14 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.disaster.R
@@ -41,24 +30,13 @@ import com.example.disaster.presentation.component.AppOutlinedButton
 import com.example.disaster.presentation.component.AuthTextField
 
 @Composable
-fun RegisterScreen(modifier: Modifier = Modifier) {
-    var fullName by rememberSaveable { mutableStateOf("") }
+fun LoginScreen(modifier: Modifier = Modifier) {
     var email by rememberSaveable { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
 
-    val annotatedText = buildAnnotatedString {
-        append("By signing up, you agree to our terms of ")
+    var checked by rememberSaveable { mutableStateOf(false) }
 
-        withStyle(style = SpanStyle(color = Color(0xFF4CAF50), fontWeight = FontWeight.SemiBold)) {
-            append("Service")
-        }
 
-        append(" and ")
-
-        withStyle(style = SpanStyle(color = Color(0xFF4CAF50), fontWeight = FontWeight.SemiBold)) {
-            append("Privacy Policy")
-        }
-    }
 
 
     Column(
@@ -70,22 +48,16 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
 
 
         Text(
-            "Sign Up",
+            "Sign In",
             fontWeight = FontWeight.Bold,
             fontSize = 32.sp
         )
 
+        Spacer(Modifier.height(8.dp))
+
+        Text("Welcome back! Please enter your details")
+
         Spacer(Modifier.height(24.dp))
-
-
-        AuthTextField(
-            "Enter Your FullName",
-            value = fullName,
-            onValueChange = { fullName = it },
-            label = "FullName",
-        )
-
-        Spacer(Modifier.height(32.dp))
 
 
         AuthTextField(
@@ -106,21 +78,44 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
             isPassword = true
         )
 
-        Spacer(Modifier.height(24.dp))
+
+        Spacer(Modifier.height(8.dp))
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+
+        ) {
+
+//            for remember me
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Checkbox(
+                    checked = checked,
+                    onCheckedChange = { checked = it }
+                )
+
+                Text(
+                    text = "Remember Me"
+                )
+            }
+
+//            for forgot password
+            TextButton(
+                onClick = {}
+            ) {
+                Text("Forgot Password", color = Color.Red, fontSize = 16.sp)
+            }
+        }
 
 
-        Text(
-            annotatedText,
-            fontSize = 16.sp,
-            fontWeight = FontWeight.SemiBold,
-            color = Color.Gray
-        )
-
-        Spacer(Modifier.height(24.dp))
+        Spacer(Modifier.height(16.dp))
 
 
         AppFilledButton(
-            "Sign Up",
+            "SignIn",
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -142,25 +137,13 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
             horizontalArrangement = Arrangement.Center,
 
             ) {
-            Text("Already Have An Account?", fontSize = 16.sp, fontWeight = FontWeight.Bold)
+            Text("Don't have an account?", fontSize = 16.sp, fontWeight = FontWeight.Bold)
             TextButton(
                 onClick = {}
             ) {
-                Text("Sign In", fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                Text("Sign Up", fontSize = 16.sp, fontWeight = FontWeight.Bold)
             }
         }
 
     }
-
-
 }
-
-
-@Preview
-@Composable
-private fun PreviewRegister() {
-
-    RegisterScreen()
-}
-
-
