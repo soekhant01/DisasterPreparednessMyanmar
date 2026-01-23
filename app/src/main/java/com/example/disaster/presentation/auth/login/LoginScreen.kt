@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.disaster.R
 import com.example.disaster.presentation.component.AppFilledButton
+import com.example.disaster.presentation.component.AppIconButton
 import com.example.disaster.presentation.component.AppOutlinedButton
 import com.example.disaster.presentation.component.AuthTextField
 
@@ -45,6 +46,10 @@ fun LoginScreen(modifier: Modifier = Modifier) {
             .statusBarsPadding()
             .padding(24.dp)
     ) {
+
+        AppIconButton(icon = painterResource(R.drawable.ic_arrow_back))
+
+        Spacer(Modifier.height(24.dp))
 
 
         Text(

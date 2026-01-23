@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
             DisasterTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 
-                    LoginScreen()
+                    RegisterScreen()
                 }
             }
         }
