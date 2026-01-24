@@ -1,4 +1,4 @@
-package com.example.disaster.presentation.component
+package com.example.disaster.presentation.core.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -26,7 +26,7 @@ import com.example.disaster.R
 
 
 @Composable
-fun AuthTextField(
+fun AppTextField(
     text: String,
     value: String,
     onValueChange: (String) -> Unit,
@@ -44,9 +44,8 @@ fun AuthTextField(
         Text(
             text,
             fontWeight = FontWeight.SemiBold,
-            fontSize = 20.sp
+            fontSize = 18.sp
         )
-        Spacer(Modifier.height(4.dp))
 
         OutlinedTextField(
             modifier = Modifier.fillMaxWidth(),

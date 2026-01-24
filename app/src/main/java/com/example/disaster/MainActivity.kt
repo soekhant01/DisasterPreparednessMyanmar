@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.disaster.presentation.auth.login.LoginScreen
 import com.example.disaster.presentation.auth.otp.OTPScreen
 import com.example.disaster.presentation.auth.register.RegisterScreen
+import com.example.disaster.presentation.onboarding.userdetail.UserDetailScreen
 import com.example.disaster.ui.theme.DisasterTheme
 
 class MainActivity : ComponentActivity() {
@@ -24,7 +25,7 @@ class MainActivity : ComponentActivity() {
             DisasterTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 
-                    OTPScreen()
+                    UserDetailScreen()
                 }
             }
         }

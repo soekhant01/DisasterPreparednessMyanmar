@@ -25,10 +25,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.disaster.R
-import com.example.disaster.presentation.component.AppFilledButton
-import com.example.disaster.presentation.component.AppIconButton
-import com.example.disaster.presentation.component.AppOutlinedButton
-import com.example.disaster.presentation.component.AuthTextField
+import com.example.disaster.presentation.core.component.AppFilledButton
+import com.example.disaster.presentation.core.component.AppIconButton
+import com.example.disaster.presentation.core.component.AppOutlinedButton
+import com.example.disaster.presentation.core.component.AppTextField
 
 @Composable
 fun LoginScreen(modifier: Modifier = Modifier) {
@@ -65,7 +65,7 @@ fun LoginScreen(modifier: Modifier = Modifier) {
         Spacer(Modifier.height(24.dp))
 
 
-        AuthTextField(
+        AppTextField(
             "Enter Your Email",
             value = email,
             onValueChange = { email = it },
@@ -75,7 +75,7 @@ fun LoginScreen(modifier: Modifier = Modifier) {
         Spacer(Modifier.height(32.dp))
 
 
-        AuthTextField(
+        AppTextField(
             "Enter Your Password",
             value = password,
             onValueChange = { password = it },

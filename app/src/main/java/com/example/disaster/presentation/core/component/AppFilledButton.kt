@@ -1,4 +1,4 @@
-package com.example.disaster.presentation.component
+package com.example.disaster.presentation.core.component
 
 import android.R.attr.onClick
 import androidx.compose.foundation.layout.padding

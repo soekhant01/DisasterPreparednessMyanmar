@@ -1,4 +1,4 @@
-package com.example.disaster.presentation.component
+package com.example.disaster.presentation.core.component
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer

@@ -1,4 +1,4 @@
-package com.example.disaster.presentation.component
+package com.example.disaster.presentation.core.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -21,7 +21,7 @@ fun AppIconButton(icon: Painter, modifier: Modifier = Modifier) {
 
     Box(
         modifier = Modifier
-            .size(56.dp)
+            .size(40.dp)
             .clip(CircleShape)
             .background(MaterialTheme.colorScheme.surfaceVariant),
         contentAlignment = Alignment.Center

@@ -40,7 +40,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.disaster.presentation.component.AppFilledButton
+import com.example.disaster.presentation.core.component.AppFilledButton
 
 @Composable
 fun OTPScreen() {
