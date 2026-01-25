@@ -11,6 +11,9 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -35,6 +38,7 @@ import com.example.disaster.presentation.core.component.RegionDropDown
 import com.example.disaster.presentation.core.component.RegionNrc
 import com.example.disaster.presentation.core.component.TownshipNRC
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun UserDetailInfoScreen(
     modifier: Modifier = Modifier,
@@ -42,122 +46,137 @@ fun UserDetailInfoScreen(
 ) {
     val scrollState = rememberScrollState()
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(scrollState)
-            .statusBarsPadding()
-            .padding(top = 0.dp, start = 24.dp, end = 24.dp, bottom = 24.dp)
-    ) {
-
-        AppIconButton(icon = painterResource(R.drawable.ic_arrow_back))
-
-        Spacer(Modifier.height(24.dp))
-
-
-        Text(
-            "Your Info",
-            fontWeight = FontWeight.Bold,
-            fontSize = 24.sp
-        )
-
-        Spacer(Modifier.height(24.dp))
-
-
-        AppTextField(
-            "Enter Your FullName",
-            value = viewModel.fullName,
-            onValueChange = viewModel::onFullNameChange,
-            label = "FullName",
-        )
-
-        Spacer(Modifier.height(18.dp))
-
-
-        AppTextField(
-            "Phone Number",
-            value = viewModel.phNumber,
-            onValueChange = viewModel::onPhoneNumberChange,
-            label = "phone number",
-        )
-
-        Spacer(Modifier.height(18.dp))
-
-
-        DatePickerDocked()
-
-        Spacer(Modifier.height(18.dp))
-
-
-        Text(
-            "NRC Number",
-            fontWeight = FontWeight.SemiBold,
-            fontSize = 18.sp
-        )
-        var selectedRegionCode by rememberSaveable { mutableStateOf("") }
-        var selectedTownShipCode by rememberSaveable { mutableStateOf("") }
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            RegionNrc(
-                modifier = Modifier.weight(1f),
-                selectedRegionCode = selectedRegionCode,
-                onRegionSelected = { region ->
-                    selectedRegionCode = region
-                    selectedTownShipCode = ""
-
-                }
+    Scaffold(
+        topBar = {
+            CenterAlignedTopAppBar(
+                title = {},
+                navigationIcon = {
+                    AppIconButton(
+                        icon = painterResource(R.drawable.ic_arrow_back)
+                    )
+                },
+                modifier = Modifier.padding(start = 18.dp)
             )
-            TownshipNRC(
-                modifier = Modifier.weight(1f),
-                selectedRegionCode = selectedRegionCode,
-                selectedTownshipCode = selectedTownShipCode,
-                onTownshipSelected = { township ->
-                    selectedTownShipCode = township
-                }
-            )
-
-            CitizenNrc()
         }
-        AppTextField(
-            "",
-            value = viewModel.nrcNumber,
-            onValueChange = { input ->
-                if (input.length <= 6 && input.all { it.isDigit() }) {
-                    viewModel.onNrcNumberChange(input)
-                }
-            },
-            keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Number
-            ),
-            singleLine = true,
-            label = "Nrc Number",
-        )
 
-        Spacer(Modifier.height(18.dp))
-
-        Text(
-            "Select Your Region/State",
-            fontWeight = FontWeight.Bold,
-            fontSize = 18.sp
-        )
-        RegionDropDown(
-            value = viewModel.selectedRegion,
-            onSelected = viewModel::onRegionSelected
-        )
-
-        Spacer(Modifier.height(18.dp))
-
-        AppFilledButton(
-            "Next",
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(Modifier.height(16.dp))
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(scrollState)
+                .padding(innerPadding)
+                .padding(horizontal = 24.dp)
+        ) {
 
 
+            Spacer(Modifier.height(8.dp))
+
+
+            Text(
+                "Your Info",
+                fontWeight = FontWeight.Bold,
+                fontSize = 24.sp
+            )
+
+            Spacer(Modifier.height(24.dp))
+
+
+            AppTextField(
+                "Enter Your FullName",
+                value = viewModel.fullName,
+                onValueChange = viewModel::onFullNameChange,
+                label = "FullName",
+            )
+
+            Spacer(Modifier.height(18.dp))
+
+
+            AppTextField(
+                "Phone Number",
+                value = viewModel.phNumber,
+                onValueChange = viewModel::onPhoneNumberChange,
+                label = "phone number",
+            )
+
+            Spacer(Modifier.height(18.dp))
+
+
+            DatePickerDocked()
+
+            Spacer(Modifier.height(18.dp))
+
+
+            Text(
+                "NRC Number",
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 18.sp
+            )
+            var selectedRegionCode by rememberSaveable { mutableStateOf("") }
+            var selectedTownShipCode by rememberSaveable { mutableStateOf("") }
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                RegionNrc(
+                    modifier = Modifier.weight(1f),
+                    selectedRegionCode = selectedRegionCode,
+                    onRegionSelected = { region ->
+                        selectedRegionCode = region
+                        selectedTownShipCode = ""
+
+                    }
+                )
+                TownshipNRC(
+                    modifier = Modifier.weight(1f),
+                    selectedRegionCode = selectedRegionCode,
+                    selectedTownshipCode = selectedTownShipCode,
+                    onTownshipSelected = { township ->
+                        selectedTownShipCode = township
+                    }
+                )
+
+                CitizenNrc()
+            }
+            AppTextField(
+                "",
+                value = viewModel.nrcNumber,
+                onValueChange = { input ->
+                    if (input.length <= 6 && input.all { it.isDigit() }) {
+                        viewModel.onNrcNumberChange(input)
+                    }
+                },
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Number
+                ),
+                singleLine = true,
+                label = "Nrc Number",
+            )
+
+            Spacer(Modifier.height(18.dp))
+
+            Text(
+                "Select Your Region/State",
+                fontWeight = FontWeight.Bold,
+                fontSize = 18.sp
+            )
+            RegionDropDown(
+                value = viewModel.selectedRegion,
+                onSelected = viewModel::onRegionSelected
+            )
+
+            Spacer(Modifier.height(18.dp))
+
+            AppFilledButton(
+                "Next",
+                modifier = Modifier.fillMaxWidth()
+            )
+
+            Spacer(Modifier.height(16.dp))
+
+
+        }
     }
+
 
 }

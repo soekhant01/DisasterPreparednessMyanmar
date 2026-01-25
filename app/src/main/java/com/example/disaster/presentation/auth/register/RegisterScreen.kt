@@ -9,6 +9,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -33,6 +36,7 @@ import com.example.disaster.presentation.core.component.AppIconButton
 import com.example.disaster.presentation.core.component.AppOutlinedButton
 import com.example.disaster.presentation.core.component.AppTextField
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RegisterScreen(modifier: Modifier = Modifier) {
     var fullName by rememberSaveable { mutableStateOf("") }
@@ -54,92 +58,116 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
     }
 
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .statusBarsPadding()
-            .padding(24.dp)
-    ) {
-
-        AppIconButton(icon =  painterResource(R.drawable.ic_arrow_back))
-
-
-        Spacer(Modifier.height(24.dp))
-
-
-        AppTextField(
-            "Enter Your FullName",
-            value = fullName,
-            onValueChange = { fullName = it },
-            label = "FullName",
-        )
-
-        Spacer(Modifier.height(32.dp))
-
-
-        AppTextField(
-            "Enter Your Email",
-            value = email,
-            onValueChange = { email = it },
-            label = "Email",
-        )
-
-        Spacer(Modifier.height(32.dp))
-
-
-        AppTextField(
-            "Enter Your Password",
-            value = password,
-            onValueChange = { password = it },
-            label = "Password",
-            isPassword = true
-        )
-
-        Spacer(Modifier.height(24.dp))
-
-
-        Text(
-            annotatedText,
-            fontSize = 16.sp,
-            fontWeight = FontWeight.SemiBold,
-            color = Color.Gray
-        )
-
-        Spacer(Modifier.height(24.dp))
-
-
-        AppFilledButton(
-            "Sign Up",
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(Modifier.height(16.dp))
-
-        AppOutlinedButton(
-            buttonLabel = "Continue With Google",
-            iconPainter = painterResource(R.drawable.ic_google),
-
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(Modifier.height(8.dp))
-
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center,
-
-            ) {
-            Text("Already Have An Account?", fontSize = 16.sp, fontWeight = FontWeight.Bold)
-            TextButton(
-                onClick = {}
-            ) {
-                Text("Sign In", fontSize = 16.sp, fontWeight = FontWeight.Bold)
-            }
+    Scaffold(
+        topBar = {
+            CenterAlignedTopAppBar(
+                title = {},
+                navigationIcon = {
+                    AppIconButton(
+                        icon = painterResource(R.drawable.ic_arrow_back)
+                    )
+                },
+                modifier = Modifier.padding(start = 18.dp)
+            )
         }
 
+    ){ innerPadding ->
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+                .padding(horizontal = 24.dp)
+        ) {
+
+            Spacer(Modifier.height(8.dp))
+
+
+            Text(
+                "Sign Up",
+                fontWeight = FontWeight.Bold,
+                fontSize = 32.sp
+            )
+
+            Spacer(Modifier.height(8.dp))
+
+
+
+            AppTextField(
+                "Enter Your FullName",
+                value = fullName,
+                onValueChange = { fullName = it },
+                label = "FullName",
+            )
+
+            Spacer(Modifier.height(24.dp))
+
+
+            AppTextField(
+                "Enter Your Email",
+                value = email,
+                onValueChange = { email = it },
+                label = "Email",
+            )
+
+            Spacer(Modifier.height(24.dp))
+
+
+            AppTextField(
+                "Enter Your Password",
+                value = password,
+                onValueChange = { password = it },
+                label = "Password",
+                isPassword = true
+            )
+
+            Spacer(Modifier.height(24.dp))
+
+
+            Text(
+                annotatedText,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.SemiBold,
+                color = Color.Gray
+            )
+
+            Spacer(Modifier.height(24.dp))
+
+
+            AppFilledButton(
+                "Sign Up",
+                modifier = Modifier.fillMaxWidth()
+            )
+
+            Spacer(Modifier.height(16.dp))
+
+            AppOutlinedButton(
+                buttonLabel = "Continue With Google",
+                iconPainter = painterResource(R.drawable.ic_google),
+
+                modifier = Modifier.fillMaxWidth()
+            )
+
+            Spacer(Modifier.height(8.dp))
+
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center,
+
+                ) {
+                Text("Already Have An Account?", fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                TextButton(
+                    onClick = {}
+                ) {
+                    Text("Sign In", fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                }
+            }
+
+        }
     }
+
 
 
 }
