@@ -63,14 +63,6 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
 
         AppIconButton(icon =  painterResource(R.drawable.ic_arrow_back))
 
-        Spacer(Modifier.height(24.dp))
-
-
-        Text(
-            "Sign Up",
-            fontWeight = FontWeight.Bold,
-            fontSize = 32.sp
-        )
 
         Spacer(Modifier.height(24.dp))
 

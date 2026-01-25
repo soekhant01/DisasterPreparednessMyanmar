@@ -12,8 +12,13 @@ class UserDetailInfoViewModel : ViewModel() {
     var phNumber by mutableStateOf("")
         private set
 
+    var nrcNumber by mutableStateOf("")
+        private set
+
     var selectedRegion by mutableStateOf("")
         private set
+
+
 
     fun onFullNameChange(name: String) {
         fullName = name
@@ -21,6 +26,10 @@ class UserDetailInfoViewModel : ViewModel() {
 
     fun onPhoneNumberChange(phoneNumber: String) {
         phNumber = phoneNumber
+    }
+
+    fun onNrcNumberChange(nrcNum: String){
+        nrcNumber = nrcNum
     }
 
     fun onRegionSelected(region: String) {

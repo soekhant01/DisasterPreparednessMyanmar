@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -17,6 +18,8 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.PlatformTextStyle
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -33,16 +36,25 @@ fun AppTextField(
     label: String,
     isPassword: Boolean = false,
     error: String? = null,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default ,
+    singleLine: Boolean = false,
     modifier: Modifier = Modifier
 ) {
     var passwordVisible by rememberSaveable { mutableStateOf(false) }
 
+
+    val noPaddingTextStyle = TextStyle(
+        platformStyle = PlatformTextStyle(
+            includeFontPadding = false
+        )
+    )
     Column(
 
     ) {
 
         Text(
             text,
+            style = noPaddingTextStyle,
             fontWeight = FontWeight.SemiBold,
             fontSize = 18.sp
         )
@@ -75,6 +87,8 @@ fun AppTextField(
                         null
                     }
                 },
+            keyboardOptions = keyboardOptions,
+            singleLine = singleLine,
             isError = error != null
         )
     }
