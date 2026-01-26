@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import com.example.disaster.presentation.auth.login.LoginScreen
 import com.example.disaster.presentation.auth.otp.OTPScreen
 import com.example.disaster.presentation.auth.register.RegisterScreen
+import com.example.disaster.presentation.home.HomeScreen
 import com.example.disaster.presentation.onboarding.userdetail.UserDetailInfoScreen
 import com.example.disaster.ui.theme.DisasterTheme
 
@@ -20,14 +21,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             DisasterTheme {
-//                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-//
-//                    App(
-//                        modifier = Modifier.padding(innerPadding)
-//                    )
-//                }
-
-                UserDetailInfoScreen()
+                App()
             }
         }
     }

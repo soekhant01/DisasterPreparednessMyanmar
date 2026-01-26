@@ -32,6 +32,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.disaster.R
+import com.example.disaster.presentation.core.component.BannerCarousel
 
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
@@ -42,7 +43,10 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             HomeTopBar("Soe Khant", {})
         }) { paddingValues ->
 
-        Column(modifier = Modifier.padding(paddingValues)) { }
+        Column(modifier = Modifier.padding(paddingValues)) {
+
+            BannerCarousel()
+        }
 
     }
 
