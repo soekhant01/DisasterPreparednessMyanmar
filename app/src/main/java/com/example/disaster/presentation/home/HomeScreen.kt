@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -17,6 +18,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
@@ -33,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.disaster.R
 import com.example.disaster.presentation.core.component.BannerCarousel
+import com.example.disaster.presentation.core.component.Preparedness
 
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
@@ -46,6 +49,32 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         Column(modifier = Modifier.padding(paddingValues)) {
 
             BannerCarousel()
+            Column() {
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        "Disaster Preparedness",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 20.sp
+                    )
+
+                    TextButton(onClick = {}) {
+                        Text(
+                            "See All",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 16.sp
+                        )
+                    }
+                }
+
+                Preparedness()
+            }
         }
 
     }
@@ -68,54 +97,54 @@ fun HomeTopBar(
 
     TopAppBar(
         title = {
-        Row(
+            Row(
 
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Box(
-                modifier = Modifier
-                    .size(40.dp)
-                    .clip(CircleShape)
-                    .background(Color(0xFFF2F2F2)), // avatar background
-                contentAlignment = Alignment.Center
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(40.dp)
+                        .clip(CircleShape)
+                        .background(Color(0xFFF2F2F2)), // avatar background
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_profile),
+                        contentDescription = null,
+                        tint = Color.Black,
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
+                Spacer(Modifier.width(4.dp))
+                Column(
+                ) {
+                    Text(
+                        text = "Hi Welcome 👋",
+                        style = noPaddingTextStyle,
+                        fontSize = 12.sp,
+                        color = Color.Gray
+                    )
+                    Text(
+                        text = userName,
+                        style = noPaddingTextStyle,
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+            }
+        }, actions = {
+            IconButton(
+                onClick = onNotificationClick
             ) {
                 Icon(
-                    painter = painterResource(R.drawable.ic_profile),
-                    contentDescription = null,
-                    tint = Color.Black,
-                    modifier = Modifier.size(24.dp)
+                    painter = painterResource(R.drawable.ic_notifications),
+                    contentDescription = null
                 )
             }
-            Spacer(Modifier.width(4.dp))
-            Column(
-            ) {
-                Text(
-                    text = "Hi Welcome 👋",
-                    style = noPaddingTextStyle,
-                    fontSize = 12.sp,
-                    color = Color.Gray
-                )
-                Text(
-                    text = userName,
-                    style = noPaddingTextStyle,
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold
-                )
-            }
-        }
-    }, actions = {
-        IconButton(
-            onClick = onNotificationClick
-        ) {
-            Icon(
-                painter = painterResource(R.drawable.ic_notifications),
-                contentDescription = null
-            )
-        }
 
-    }, colors = TopAppBarDefaults.topAppBarColors(
-        containerColor = Color.White
-    )
+        }, colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = Color.White
+        )
 
     )
 
