@@ -1,6 +1,7 @@
 package com.example.disaster.presentation.core.component
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
@@ -18,17 +19,18 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun AppIconButton(icon: Painter, modifier: Modifier = Modifier) {
+fun AppIconButton(icon: Painter, onClick: () -> Unit, modifier: Modifier = Modifier) {
 
     Box(
         modifier = Modifier
+            .clickable { onClick() }
             .size(40.dp)
             .clip(CircleShape)
             .background(MaterialTheme.colorScheme.surfaceVariant),
         contentAlignment = Alignment.Center
     ) {
         IconButton(
-            onClick = {}
+            onClick = { onClick() }
         ) {
             Icon(
                 modifier = Modifier.size(32.dp),

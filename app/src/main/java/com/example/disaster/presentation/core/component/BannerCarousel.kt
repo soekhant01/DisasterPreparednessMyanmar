@@ -38,9 +38,9 @@ fun BannerCarousel(modifier: Modifier = Modifier) {
 
     Column(
         modifier
-            .defaultMinSize(minHeight = 300.dp)
+            .defaultMinSize(minHeight = 250.dp)
             .fillMaxWidth()
-            .padding(16.dp)
+            .padding(horizontal = 16.dp)
     ) {
 
 
@@ -55,7 +55,7 @@ fun BannerCarousel(modifier: Modifier = Modifier) {
                 contentDescription = "",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(300.dp)
+                    .height(250.dp)
                     .clip(RoundedCornerShape(20.dp)),
                 contentScale = ContentScale.Crop
             )

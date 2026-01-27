@@ -1,6 +1,7 @@
 package com.example.disaster.presentation.core.component
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -23,33 +24,37 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.disaster.R
 
 data class Disaster(
     val name: String,
-    val iconResId: Int
+    val iconResId: Int,
+    val route: String
 )
 
 val disasterList = listOf(
-    Disaster("Flood", R.drawable.flood),
-    Disaster("Cyclone", R.drawable.cyclone),
-    Disaster("Earthquake", R.drawable.earthquake),
-    Disaster("Landslide", R.drawable.landslide),
-    Disaster("Drought", R.drawable.drought),
-    Disaster("Burn", R.drawable.burn),
-    Disaster("Forest Fire", R.drawable.forest_fire)
+    Disaster("Flood", R.drawable.flood, "flood"),
+    Disaster("Cyclone", R.drawable.cyclone, "cyclone"),
+    Disaster("Earthquake", R.drawable.earthquake, "earthquake"),
+    Disaster("Landslide", R.drawable.landslide, "landslide"),
+    Disaster("Drought", R.drawable.drought, "drought"),
+    Disaster("Burn", R.drawable.burn, "burn"),
+    Disaster("Forest Fire", R.drawable.forest_fire, "forest_fire")
 
-    )
+)
 
 
 @Composable
-fun Preparedness(modifier: Modifier = Modifier) {
+fun Preparedness(modifier: Modifier = Modifier, navController: NavController) {
     LazyRow(
         contentPadding = PaddingValues(horizontal = 16.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items(disasterList) { disaster ->
-            DisasterCard(disaster = disaster)
+            DisasterCard(disaster = disaster, onClick = {
+                navController.navigate("disaster/${disaster.route}")
+            })
         }
     }
 
@@ -57,10 +62,11 @@ fun Preparedness(modifier: Modifier = Modifier) {
 
 
 @Composable
-fun DisasterCard(disaster: Disaster) {
+fun DisasterCard(disaster: Disaster, onClick: () -> Unit) {
     Card(
         modifier = Modifier
-            .width(120.dp),
+            .width(120.dp)
+            .clickable{ onClick() },
         elevation = CardDefaults.cardElevation(4.dp)
     ) {
         Column(

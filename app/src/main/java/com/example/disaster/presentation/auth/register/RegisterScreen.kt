@@ -30,6 +30,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.disaster.R
 import com.example.disaster.presentation.core.component.AppFilledButton
 import com.example.disaster.presentation.core.component.AppIconButton
@@ -38,7 +39,7 @@ import com.example.disaster.presentation.core.component.AppTextField
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RegisterScreen(modifier: Modifier = Modifier) {
+fun RegisterScreen(modifier: Modifier = Modifier, navController: NavController) {
     var fullName by rememberSaveable { mutableStateOf("") }
     var email by rememberSaveable { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
@@ -64,7 +65,9 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
                 title = {},
                 navigationIcon = {
                     AppIconButton(
-                        icon = painterResource(R.drawable.ic_arrow_back)
+                        icon = painterResource(R.drawable.ic_arrow_back),
+                        onClick = {navController.navigate("home")}
+
                     )
                 },
                 modifier = Modifier.padding(start = 18.dp)
@@ -167,17 +170,7 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
 
         }
     }
-
-
-
 }
 
-
-@Preview
-@Composable
-private fun PreviewRegister() {
-
-    RegisterScreen()
-}
 
 

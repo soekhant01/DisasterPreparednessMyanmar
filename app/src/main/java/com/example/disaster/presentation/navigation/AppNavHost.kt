@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.disaster.presentation.home.HomeScreen
 import com.example.disaster.presentation.organization.OrganizationScreen
+import com.example.disaster.presentation.preparedness.DisasterPreparednessDetail
 import com.example.disaster.presentation.profile.ProfileScreen
 
 @Composable
@@ -20,7 +21,7 @@ fun AppNavHost(modifier: Modifier = Modifier, navController: NavHostController) 
         composable(
             route = BottomNavItem.Home.route
         ) {
-            HomeScreen()
+            HomeScreen(navController=navController)
         }
 
         composable(
@@ -33,6 +34,14 @@ fun AppNavHost(modifier: Modifier = Modifier, navController: NavHostController) 
             route = BottomNavItem.Profile.route
         ) {
             ProfileScreen()
+        }
+
+        composable("disaster/{type}"){ backStackEntry ->
+            val type = backStackEntry.arguments?.getString("type")
+            DisasterPreparednessDetail(
+                type,
+                navController = navController
+            )
         }
 
     }

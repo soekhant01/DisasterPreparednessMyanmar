@@ -27,6 +27,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.disaster.R
 import com.example.disaster.presentation.core.component.AppFilledButton
 import com.example.disaster.presentation.core.component.AppIconButton
@@ -35,7 +36,7 @@ import com.example.disaster.presentation.core.component.AppTextField
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen(modifier: Modifier = Modifier) {
+fun LoginScreen(modifier: Modifier = Modifier, navController: NavController) {
     var email by rememberSaveable { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
 
@@ -48,7 +49,8 @@ fun LoginScreen(modifier: Modifier = Modifier) {
                 title = {},
                 navigationIcon = {
                     AppIconButton(
-                        icon = painterResource(R.drawable.ic_arrow_back)
+                        icon = painterResource(R.drawable.ic_arrow_back),
+                        onClick = {navController.navigate("home")}
                     )
                 },
                 modifier = Modifier.padding(start = 18.dp)

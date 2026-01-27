@@ -1,14 +1,13 @@
 package com.example.disaster.presentation.home
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -20,7 +19,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -33,12 +31,14 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.disaster.R
 import com.example.disaster.presentation.core.component.BannerCarousel
 import com.example.disaster.presentation.core.component.Preparedness
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
+
 
     Scaffold(
         containerColor = Color.White,
@@ -49,12 +49,15 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         Column(modifier = Modifier.padding(paddingValues)) {
 
             BannerCarousel()
+
+
+            Spacer(modifier.height(8.dp))
             Column() {
 
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(16.dp),
+                        .padding(horizontal = 16.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
@@ -73,7 +76,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                     }
                 }
 
-                Preparedness()
+                Preparedness(navController=navController)
             }
         }
 
@@ -85,7 +88,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeTopBar(
-    userName: String, onNotificationClick: () -> Unit, modifier: Modifier = Modifier
+    userName: String, onNotificationClick: () -> Unit,
 ) {
 
 
@@ -137,7 +140,8 @@ fun HomeTopBar(
                 onClick = onNotificationClick
             ) {
                 Icon(
-                    painter = painterResource(R.drawable.ic_notifications),
+                    modifier = Modifier.size(24.dp),
+                    painter = painterResource(R.drawable.bell),
                     contentDescription = null
                 )
             }

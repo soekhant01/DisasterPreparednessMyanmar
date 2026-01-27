@@ -28,6 +28,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.example.disaster.R
 import com.example.disaster.presentation.core.component.AppFilledButton
 import com.example.disaster.presentation.core.component.AppIconButton
@@ -42,7 +43,8 @@ import com.example.disaster.presentation.core.component.TownshipNRC
 @Composable
 fun UserDetailInfoScreen(
     modifier: Modifier = Modifier,
-    viewModel: UserDetailInfoViewModel = viewModel()
+    viewModel: UserDetailInfoViewModel = viewModel(),
+    navController: NavController
 ) {
     val scrollState = rememberScrollState()
 
@@ -52,7 +54,9 @@ fun UserDetailInfoScreen(
                 title = {},
                 navigationIcon = {
                     AppIconButton(
-                        icon = painterResource(R.drawable.ic_arrow_back)
+                        icon = painterResource(R.drawable.ic_arrow_back),
+                        onClick = { navController.navigate("home") }
+
                     )
                 },
                 modifier = Modifier.padding(start = 18.dp)
