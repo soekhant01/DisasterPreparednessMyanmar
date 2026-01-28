@@ -6,17 +6,14 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.disaster.R
 import com.example.disaster.data.model.organizationList
-import com.example.disaster.presentation.core.component.AppIconButton
+import com.example.disaster.presentation.core.component.AppSearchBar
 import com.example.disaster.presentation.core.component.OrganizationCard
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -25,7 +22,11 @@ import com.example.disaster.presentation.core.component.OrganizationCard
 fun OrganizationScreen(modifier: Modifier = Modifier, navController: NavController) {
 
     Scaffold(
-        topBar = {}
+        topBar = {
+            AppSearchBar(
+                onQueryUpdate ={}
+            )
+        }
 
     ) { innerPadding ->
 
