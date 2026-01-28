@@ -27,7 +27,7 @@ fun LandslideScreen(modifier: Modifier = Modifier, navController: NavController)
                 navigationIcon = {
                     AppIconButton(
                         icon = painterResource(R.drawable.ic_arrow_back),
-                        onClick = {navController.navigate("home")}
+                        onClick = { navController.popBackStack() }
 
                     )
                 },
@@ -35,7 +35,7 @@ fun LandslideScreen(modifier: Modifier = Modifier, navController: NavController)
             )
         }
 
-    ){
+    ) {
 
         Column(
             modifier = Modifier.fillMaxSize(),

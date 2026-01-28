@@ -26,23 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.disaster.R
-
-data class Disaster(
-    val name: String,
-    val iconResId: Int,
-    val route: String
-)
-
-val disasterList = listOf(
-    Disaster("Flood", R.drawable.flood, "flood"),
-    Disaster("Cyclone", R.drawable.cyclone, "cyclone"),
-    Disaster("Earthquake", R.drawable.earthquake, "earthquake"),
-    Disaster("Landslide", R.drawable.landslide, "landslide"),
-    Disaster("Drought", R.drawable.drought, "drought"),
-    Disaster("Burn", R.drawable.burn, "burn"),
-    Disaster("Forest Fire", R.drawable.forest_fire, "forest_fire")
-
-)
+import com.example.disaster.data.model.disasterList
 
 
 @Composable
@@ -54,7 +38,7 @@ fun Preparedness(modifier: Modifier = Modifier, navController: NavController) {
         items(disasterList) { disaster ->
             DisasterCard(disaster = disaster, onClick = {
                 navController.navigate("disaster/${disaster.route}")
-            })
+            }, modifier = Modifier.width(120.dp), isHorizontal = true)
         }
     }
 

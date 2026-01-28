@@ -29,7 +29,7 @@ fun FloodScreen(modifier: Modifier = Modifier, navController: NavHostController)
                 navigationIcon = {
                     AppIconButton(
                         icon = painterResource(R.drawable.ic_arrow_back),
-                        onClick = {navController.navigate("home")}
+                        onClick = {navController.popBackStack()}
 
                     )
                 },

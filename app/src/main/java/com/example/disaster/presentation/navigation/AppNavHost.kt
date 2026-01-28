@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import com.example.disaster.presentation.home.HomeScreen
 import com.example.disaster.presentation.organization.OrganizationScreen
 import com.example.disaster.presentation.preparedness.DisasterPreparednessDetail
+import com.example.disaster.presentation.preparedness.SeeAllScreen
 import com.example.disaster.presentation.profile.ProfileScreen
 
 @Composable
@@ -21,13 +22,13 @@ fun AppNavHost(modifier: Modifier = Modifier, navController: NavHostController) 
         composable(
             route = BottomNavItem.Home.route
         ) {
-            HomeScreen(navController=navController)
+            HomeScreen(navController = navController)
         }
 
         composable(
             route = BottomNavItem.Organization.route
         ) {
-            OrganizationScreen(navController=navController)
+            OrganizationScreen(navController = navController)
         }
 
         composable(
@@ -36,13 +37,21 @@ fun AppNavHost(modifier: Modifier = Modifier, navController: NavHostController) 
             ProfileScreen()
         }
 
-        composable("disaster/{type}"){ backStackEntry ->
+
+        composable("disaster/{type}") { backStackEntry ->
             val type = backStackEntry.arguments?.getString("type")
             DisasterPreparednessDetail(
                 type,
                 navController = navController
             )
         }
+
+        composable(
+            ScreenRoute.SeeAll.route
+        ) {
+            SeeAllScreen(navController = navController)
+        }
+
 
     }
 }

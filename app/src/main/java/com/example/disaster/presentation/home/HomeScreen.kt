@@ -35,6 +35,7 @@ import androidx.navigation.NavController
 import com.example.disaster.R
 import com.example.disaster.presentation.core.component.BannerCarousel
 import com.example.disaster.presentation.core.component.Preparedness
+import com.example.disaster.presentation.preparedness.SeeAllScreen
 
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
@@ -67,7 +68,9 @@ fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
                         fontSize = 20.sp
                     )
 
-                    TextButton(onClick = {}) {
+                    TextButton(onClick = {
+                        navController.navigate("see_all")
+                    }) {
                         Text(
                             "See All",
                             fontWeight = FontWeight.Bold,

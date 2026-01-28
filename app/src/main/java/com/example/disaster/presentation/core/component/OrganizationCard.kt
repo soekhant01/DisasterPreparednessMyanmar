@@ -55,10 +55,9 @@ fun OrganizationCard(modifier: Modifier = Modifier, organization: Organization) 
             Column() {
                 Text(organization.title, fontSize = 18.sp, fontWeight = FontWeight.SemiBold)
 
-                Text("SOS: ${organization.sos}", fontSize = 14.sp)
+                Text("SOS: ${organization.sos}", fontSize = 12.sp)
                 Text(
-                    "Address: ${organization.address} ",
-                    fontSize = 14.sp
+                    "Address: ${organization.address} ", fontSize = 12.sp
                 )
 
             }

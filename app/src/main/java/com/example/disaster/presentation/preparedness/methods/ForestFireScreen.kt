@@ -27,7 +27,7 @@ fun ForestFireScreen(modifier: Modifier = Modifier, navController: NavController
                 navigationIcon = {
                     AppIconButton(
                         icon = painterResource(R.drawable.ic_arrow_back),
-                        onClick = {navController.navigate("home")}
+                        onClick = {navController.popBackStack()}
 
                     )
                 },

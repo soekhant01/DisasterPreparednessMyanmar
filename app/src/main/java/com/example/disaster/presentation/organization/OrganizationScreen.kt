@@ -2,7 +2,10 @@ package com.example.disaster.presentation.organization
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -24,21 +27,30 @@ fun OrganizationScreen(modifier: Modifier = Modifier, navController: NavControll
     Scaffold(
         topBar = {
             AppSearchBar(
-                onQueryUpdate ={}
+                onQueryUpdate = {}
             )
         }
 
     ) { innerPadding ->
 
+
         LazyColumn(
             modifier = Modifier.padding(innerPadding),
-            contentPadding = PaddingValues(16.dp),
+            contentPadding = PaddingValues(
+                start = 16.dp,
+                end = 16.dp,
+                top = 16.dp,
+                bottom = innerPadding.calculateBottomPadding() + 64.dp
+            ),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(organizationList) { organization ->
                 OrganizationCard(organization = organization)
             }
 
+
         }
+
+
     }
 }
