@@ -61,33 +61,3 @@ fun Preparedness(modifier: Modifier = Modifier, navController: NavController) {
 }
 
 
-@Composable
-fun DisasterCard(disaster: Disaster, onClick: () -> Unit) {
-    Card(
-        modifier = Modifier
-            .width(120.dp)
-            .clickable{ onClick() },
-        elevation = CardDefaults.cardElevation(4.dp)
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(12.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
-
-            ) {
-            Image(
-                painter = painterResource(id = disaster.iconResId),
-                contentDescription = disaster.name,
-                modifier = Modifier.size(48.dp)
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = disaster.name,
-                fontSize = 14.sp,
-                fontWeight = FontWeight.Bold
-            )
-        }
-    }
-}
