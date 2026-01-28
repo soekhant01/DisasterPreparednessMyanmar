@@ -27,7 +27,7 @@ fun AppNavHost(modifier: Modifier = Modifier, navController: NavHostController) 
         composable(
             route = BottomNavItem.Organization.route
         ) {
-            OrganizationScreen()
+            OrganizationScreen(navController=navController)
         }
 
         composable(

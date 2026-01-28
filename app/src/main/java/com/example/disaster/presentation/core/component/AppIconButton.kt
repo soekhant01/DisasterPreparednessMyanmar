@@ -3,6 +3,7 @@ package com.example.disaster.presentation.core.component
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.CircleShape
@@ -22,7 +23,7 @@ import androidx.compose.ui.unit.sp
 fun AppIconButton(icon: Painter, onClick: () -> Unit, modifier: Modifier = Modifier) {
 
     Box(
-        modifier = Modifier
+        modifier = Modifier.padding(start = 16.dp)
             .clickable { onClick() }
             .size(40.dp)
             .clip(CircleShape)
