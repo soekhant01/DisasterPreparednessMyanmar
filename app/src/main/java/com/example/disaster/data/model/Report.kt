@@ -2,7 +2,6 @@ package com.example.disaster.data.model
 
 import androidx.compose.ui.res.painterResource
 import com.example.disaster.R
-import com.example.disaster.presentation.report.ReportScreen
 
 data class Report(
     val userName: String,

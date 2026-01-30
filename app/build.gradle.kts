@@ -74,4 +74,7 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.coil.okhttp)
 
+    implementation("androidx.compose.material:material-icons-extended")
+
+
 }

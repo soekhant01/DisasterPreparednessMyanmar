@@ -36,7 +36,7 @@ fun AppNavHost(modifier: Modifier = Modifier, navController: NavHostController) 
             route = BottomNavItem.Report.route
         ) {
 
-            ReportScreen()
+            ReportScreen(navController = navController)
         }
 
         composable(
