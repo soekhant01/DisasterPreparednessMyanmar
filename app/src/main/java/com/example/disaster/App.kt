@@ -24,7 +24,7 @@ fun App(modifier: Modifier = Modifier) {
     val bottomNavRoutes = setOf(
         BottomNavItem.Home.route,
         BottomNavItem.Organization.route,
-        BottomNavItem.Profile.route
+        BottomNavItem.Report.route
     )
 
     val showBottomBar = currentRoute in bottomNavRoutes

@@ -10,6 +10,7 @@ import com.example.disaster.presentation.organization.OrganizationScreen
 import com.example.disaster.presentation.preparedness.DisasterPreparednessDetail
 import com.example.disaster.presentation.preparedness.SeeAllScreen
 import com.example.disaster.presentation.profile.ProfileScreen
+import com.example.disaster.presentation.report.ReportScreen
 
 @Composable
 fun AppNavHost(modifier: Modifier = Modifier, navController: NavHostController) {
@@ -32,7 +33,14 @@ fun AppNavHost(modifier: Modifier = Modifier, navController: NavHostController) 
         }
 
         composable(
-            route = BottomNavItem.Profile.route
+            route = BottomNavItem.Report.route
+        ) {
+
+            ReportScreen()
+        }
+
+        composable(
+            route = "profile"
         ) {
             ProfileScreen(navController = navController)
         }

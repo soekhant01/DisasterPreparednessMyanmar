@@ -10,6 +10,6 @@ sealed class BottomNavItem(
 ) {
     object Home: BottomNavItem("home","Home",R.drawable.ic_home)
     object Organization: BottomNavItem("organization", "Organization", R.drawable.ic_organization)
-    object Profile: BottomNavItem("profile", "Profile", R.drawable.ic_profile)
+    object Report: BottomNavItem("report", "Report", R.drawable.ic_report)
 
 }
