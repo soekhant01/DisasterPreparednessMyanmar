@@ -34,7 +34,7 @@ fun AppNavHost(modifier: Modifier = Modifier, navController: NavHostController) 
         composable(
             route = BottomNavItem.Profile.route
         ) {
-            ProfileScreen()
+            ProfileScreen(navController = navController)
         }
 
 

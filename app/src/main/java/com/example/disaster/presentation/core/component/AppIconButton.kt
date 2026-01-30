@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.sp
 fun AppIconButton(icon: Painter, onClick: () -> Unit, modifier: Modifier = Modifier) {
 
     Box(
-        modifier = Modifier
+        modifier = modifier
             .size(40.dp)
             .clip(CircleShape)
             .background(MaterialTheme.colorScheme.surfaceVariant),

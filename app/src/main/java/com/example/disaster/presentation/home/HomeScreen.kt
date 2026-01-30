@@ -79,7 +79,7 @@ fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
                     }
                 }
 
-                Preparedness(navController=navController)
+                Preparedness(navController = navController)
             }
         }
 

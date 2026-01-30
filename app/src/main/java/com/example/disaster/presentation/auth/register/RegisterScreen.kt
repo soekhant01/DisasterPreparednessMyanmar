@@ -92,19 +92,7 @@ fun RegisterScreen(modifier: Modifier = Modifier, navController: NavController) 
                 fontSize = 32.sp
             )
 
-            Spacer(Modifier.height(8.dp))
-
-
-
-            AppTextField(
-                "Enter Your FullName",
-                value = fullName,
-                onValueChange = { fullName = it },
-                label = "FullName",
-            )
-
-            Spacer(Modifier.height(24.dp))
-
+            Spacer(Modifier.height(16.dp))
 
             AppTextField(
                 "Enter Your Email",
