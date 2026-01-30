@@ -53,7 +53,7 @@ fun ReportCard(
 ) {
     var isExpanded by rememberSaveable { mutableStateOf(false) }
 
-    var displayLines = if (isExpanded) Int.MAX_VALUE else maxLines
+    val displayLines = if (isExpanded) Int.MAX_VALUE else maxLines
 
     Card(
         modifier = Modifier
@@ -119,15 +119,15 @@ fun ReportCard(
                 ),
                 fontSize = 16.sp
             )
-
-            Text(
-                text = report.coordinates,
-                style = MaterialTheme.typography.bodyLarge.copy(
-                    color = Color(0xFF42A5F5),
-                    fontWeight = FontWeight.Medium
-                ),
-                modifier = Modifier.padding(vertical = 4.dp)
-            )
+//
+//            Text(
+//                text = report.coordinates,
+//                style = MaterialTheme.typography.bodyLarge.copy(
+//                    color = Color(0xFF42A5F5),
+//                    fontWeight = FontWeight.Medium
+//                ),
+//                modifier = Modifier.padding(vertical = 4.dp)
+//            )
             Text(
                 text = report.description,
                 style = MaterialTheme.typography.bodyMedium,
@@ -210,13 +210,11 @@ fun ReportCard(
             // Accept Button
             Button(
                 onClick = { /* Handle Accept */ },
-                modifier = Modifier
-                    .width(140.dp)
-                    .height(48.dp),
+                modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(12.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF0091FF))
             ) {
-                Text(text = "Accept", fontSize = 18.sp, color = Color.White)
+                Text(text = "See On Map", fontSize = 18.sp, color = Color.White)
             }
         }
 
