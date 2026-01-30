@@ -1,6 +1,7 @@
 package com.example.disaster.presentation.home
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -35,7 +36,6 @@ import androidx.navigation.NavController
 import com.example.disaster.R
 import com.example.disaster.presentation.core.component.BannerCarousel
 import com.example.disaster.presentation.core.component.Preparedness
-import com.example.disaster.presentation.preparedness.SeeAllScreen
 
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
@@ -44,7 +44,7 @@ fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
     Scaffold(
         containerColor = Color.White,
         topBar = {
-            HomeTopBar("Soe Khant", {})
+            HomeTopBar("Soe Khant", {}, navController)
         }) { paddingValues ->
 
         Column(modifier = Modifier.padding(paddingValues)) {
@@ -91,7 +91,7 @@ fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeTopBar(
-    userName: String, onNotificationClick: () -> Unit,
+    userName: String, onNotificationClick: () -> Unit, navController: NavController
 ) {
 
 
@@ -118,7 +118,9 @@ fun HomeTopBar(
                         painter = painterResource(R.drawable.ic_profile),
                         contentDescription = null,
                         tint = Color.Black,
-                        modifier = Modifier.size(24.dp)
+                        modifier = Modifier.size(24.dp).clickable{
+                            navController.navigate("profile")
+                        }
                     )
                 }
                 Spacer(Modifier.width(4.dp))
