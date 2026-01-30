@@ -10,6 +10,7 @@ import com.example.disaster.presentation.organization.OrganizationScreen
 import com.example.disaster.presentation.preparedness.DisasterPreparednessDetail
 import com.example.disaster.presentation.preparedness.SeeAllScreen
 import com.example.disaster.presentation.profile.ProfileScreen
+import com.example.disaster.presentation.report.AddReportScreen
 import com.example.disaster.presentation.report.ReportScreen
 
 @Composable
@@ -58,6 +59,12 @@ fun AppNavHost(modifier: Modifier = Modifier, navController: NavHostController) 
             ScreenRoute.SeeAll.route
         ) {
             SeeAllScreen(navController = navController)
+        }
+
+        composable(
+            route = "add_report"
+        ) {
+            AddReportScreen(navController = navController)
         }
 
 

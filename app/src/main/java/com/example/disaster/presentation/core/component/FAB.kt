@@ -41,7 +41,7 @@ fun FAB(navController: NavController) {
     ) {
 
         FloatingActionButton(
-            onClick = {},
+            onClick = {navController.navigate("add_report")},
             containerColor = Color.Blue,
             contentColor = Color.White,
             shape = CircleShape
