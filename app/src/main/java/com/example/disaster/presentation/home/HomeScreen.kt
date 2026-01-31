@@ -25,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle
@@ -40,14 +41,16 @@ import com.example.disaster.presentation.core.component.PreparednessSection
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
 
+    val context = LocalContext.current
 
     Scaffold(
         containerColor = Color.White,
         topBar = {
             HomeTopBar("Soe Khant", {}, navController)
-        },) { paddingValues ->
+        },
+    ) { paddingValues ->
 
-        LazyColumn(modifier = Modifier.padding(paddingValues),) {
+        LazyColumn(modifier = Modifier.padding(paddingValues)) {
 
             item { BannerCarousel() }
 
@@ -59,11 +62,9 @@ fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
 
             item { Spacer(modifier.height(24.dp)) }
 
-            item { EmergencyCallSection() }
+            item { EmergencyCallSection(context = context) }
 
             item { Spacer(modifier.height(80.dp)) }
-
-
 
 
         }

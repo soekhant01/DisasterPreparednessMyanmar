@@ -1,5 +1,6 @@
 package com.example.disaster.presentation.core.component
 
+import android.content.Context
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,7 +17,7 @@ import androidx.compose.ui.unit.sp
 import com.example.disaster.data.model.emergencyList
 
 @Composable
-fun EmergencyCallSection(modifier: Modifier = Modifier) {
+fun EmergencyCallSection(modifier: Modifier = Modifier, context: Context) {
 
 
 
@@ -40,7 +41,10 @@ fun EmergencyCallSection(modifier: Modifier = Modifier) {
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 chunk.forEach { emergency ->
-                    EmergencyCard(emergency = emergency, modifier = Modifier.weight(1f))
+                    EmergencyCard(
+                        emergency = emergency, modifier = Modifier.weight(1f),
+                        context = context
+                    )
                 }
             }
 

@@ -1,5 +1,8 @@
 package com.example.disaster.presentation.core.component
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -23,12 +26,17 @@ import androidx.compose.ui.unit.sp
 import com.example.disaster.data.model.Emergency
 
 @Composable
-fun EmergencyCard(modifier: Modifier = Modifier, emergency: Emergency) {
+fun EmergencyCard(modifier: Modifier = Modifier, emergency: Emergency, context: Context) {
 
 
     Card(
         modifier = modifier
-            .clickable {},
+            .clickable {
+                val intent = Intent(Intent.ACTION_DIAL).apply {
+                    data = Uri.parse("tel:${emergency.phoneNumber}")
+                }
+                context.startActivity(intent)
+            },
         elevation = CardDefaults.cardElevation(4.dp)
     ) {
 
