@@ -58,8 +58,6 @@ import com.example.disaster.presentation.core.component.ProfileHeaderSection
 fun ProfileScreen(modifier: Modifier = Modifier, navController: NavController) {
 
 
-
-
     Scaffold(
         containerColor = Color.White,
 
@@ -105,7 +103,7 @@ fun ProfileScreen(modifier: Modifier = Modifier, navController: NavController) {
             }
 
             item {
-                AccountSection()
+                AccountSection(navController = navController)
             }
             item { HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp)) }
 

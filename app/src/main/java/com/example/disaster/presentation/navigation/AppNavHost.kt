@@ -5,10 +5,12 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navigation
 import com.example.disaster.presentation.home.HomeScreen
 import com.example.disaster.presentation.organization.OrganizationScreen
 import com.example.disaster.presentation.preparedness.DisasterPreparednessDetail
 import com.example.disaster.presentation.preparedness.SeeAllScreen
+import com.example.disaster.presentation.profile.MyAccountScreen
 import com.example.disaster.presentation.profile.ProfileScreen
 import com.example.disaster.presentation.report.AddReportScreen
 import com.example.disaster.presentation.report.ReportScreen
@@ -40,10 +42,20 @@ fun AppNavHost(modifier: Modifier = Modifier, navController: NavHostController) 
             ReportScreen(navController = navController)
         }
 
-        composable(
-            route = "profile"
+        navigation(
+            route = "profile",
+            startDestination = "profile/home"
         ) {
-            ProfileScreen(navController = navController)
+            composable(
+                route = "profile/home"
+            ) {
+                ProfileScreen(navController = navController)
+            }
+
+            composable("profile/account") {
+                MyAccountScreen(navController = navController)
+            }
+
         }
 
 

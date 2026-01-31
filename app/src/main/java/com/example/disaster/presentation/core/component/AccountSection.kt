@@ -17,10 +17,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.disaster.R
 
 @Composable
-fun AccountSection(modifier: Modifier = Modifier) {
+fun AccountSection(modifier: Modifier = Modifier, navController: NavController) {
 
 
 //          my account section
@@ -41,7 +42,9 @@ fun AccountSection(modifier: Modifier = Modifier) {
 
         ProfileSectionRow(
             icon = painterResource(R.drawable.ic_account),
-            text = "My Account"
+            text = "My Account",
+            isForwarded = true,
+            onClick = {navController.navigate("profile/account")}
         )
 
 

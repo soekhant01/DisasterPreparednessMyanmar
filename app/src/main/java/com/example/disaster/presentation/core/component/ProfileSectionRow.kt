@@ -19,7 +19,14 @@ import androidx.compose.ui.unit.dp
 import com.example.disaster.R
 
 @Composable
-fun ProfileSectionRow(modifier: Modifier = Modifier, icon: Painter, text: String, isDestructive: Boolean = false) {
+fun ProfileSectionRow(
+    modifier: Modifier = Modifier,
+    icon: Painter,
+    text: String,
+    isDestructive: Boolean = false,
+    isForwarded: Boolean = false,
+    onClick: () -> Unit = {}
+) {
 
 
     val contentColor = if (isDestructive) Color.Red else Color.Gray
@@ -29,7 +36,7 @@ fun ProfileSectionRow(modifier: Modifier = Modifier, icon: Painter, text: String
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable {}
+            .clickable { onClick() }
             .padding(vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically) {
 
@@ -55,10 +62,12 @@ fun ProfileSectionRow(modifier: Modifier = Modifier, icon: Painter, text: String
             )
         }
 
-        Icon(
-            painter = painterResource(R.drawable.ic_right_arrow),
-            contentDescription = text,
-            tint = Color.Gray
-        )
+        if (isForwarded) {
+            Icon(
+                painter = painterResource(R.drawable.ic_right_arrow),
+                contentDescription = text,
+                tint = Color.Gray
+            )
+        }
     }
 }

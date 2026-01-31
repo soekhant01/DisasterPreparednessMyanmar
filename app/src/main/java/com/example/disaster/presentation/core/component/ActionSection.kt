@@ -35,7 +35,9 @@ fun ActionSection(modifier: Modifier = Modifier) {
 
         ProfileSectionRow(
             icon = painterResource(R.drawable.ic_logout),
-            text = "Logout"
+            text = "Logout",
+            isForwarded = true
+
         )
 
 
@@ -43,7 +45,9 @@ fun ActionSection(modifier: Modifier = Modifier) {
         ProfileSectionRow(
             icon = painterResource(R.drawable.ic_delete),
             text = "Delete Account",
-            isDestructive = true
+            isDestructive = true,
+            isForwarded = true
+
         )
 
 

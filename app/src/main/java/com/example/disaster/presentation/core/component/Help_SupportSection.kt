@@ -40,13 +40,16 @@ fun Help_SupportSection(modifier: Modifier = Modifier) {
 
         ProfileSectionRow(
             icon = painterResource(R.drawable.ic_help),
-            text = "Help & Support"
+            text = "Help & Support",
+            isForwarded = true
+
         )
 
 
         ProfileSectionRow(
             icon = painterResource(R.drawable.ic_about),
-            text = "About"
+            text = "About",
+            isForwarded = true
         )
 
     }
