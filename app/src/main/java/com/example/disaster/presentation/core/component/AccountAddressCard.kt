@@ -25,13 +25,6 @@ import com.example.disaster.data.model.UserInfoData
 @Composable
 fun AccountAddressCard(modifier: Modifier = Modifier, location: UserInfoData) {
 
-//    val location = userInfo.address.firstOrNull() // safe first address
-//    if (location == null) {
-//        Text("No address available")
-//        return
-//    }
-
-
     Column() {
 
         Row(
@@ -51,6 +44,7 @@ fun AccountAddressCard(modifier: Modifier = Modifier, location: UserInfoData) {
             modifier = modifier
                 .fillMaxWidth(),
             shape = RoundedCornerShape(8.dp),
+            colors = CardDefaults.cardColors(containerColor = Color.White),
             elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
         ) {
             Column(

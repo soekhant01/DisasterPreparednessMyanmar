@@ -47,6 +47,7 @@ fun AccountInfoCard(modifier: Modifier = Modifier, accountInfo: UserInfoData) {
             modifier = modifier
                 .fillMaxWidth(),
             shape = RoundedCornerShape(8.dp),
+            colors = CardDefaults.cardColors(containerColor = Color.White),
             elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
         ) {
             Column(

@@ -12,8 +12,10 @@ import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -22,6 +24,7 @@ import com.example.disaster.data.model.Address
 import com.example.disaster.data.model.UserInfoData
 import com.example.disaster.presentation.core.component.AccountAddressCard
 import com.example.disaster.presentation.core.component.AccountInfoCard
+import com.example.disaster.presentation.core.component.AppFilledButton
 import com.example.disaster.presentation.core.component.AppIconButton
 import com.example.disaster.presentation.core.component.ProfileHeaderSection
 
@@ -49,8 +52,12 @@ fun MyAccountScreen(modifier: Modifier = Modifier, navController: NavController)
 
 
     Scaffold(
+        containerColor = Color.White,
         topBar = {
             CenterAlignedTopAppBar(
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color.White
+                ),
                 title = {
                     Text("My Account")
                 },
@@ -93,9 +100,10 @@ fun MyAccountScreen(modifier: Modifier = Modifier, navController: NavController)
             }
 
             item {
-                Button(onClick = {}, modifier = Modifier.fillMaxWidth()) {
-                    Text("My Location")
-                }
+                AppFilledButton(
+                    "My Location",
+                    modifier = Modifier.fillMaxWidth()
+                )
             }
 
 
