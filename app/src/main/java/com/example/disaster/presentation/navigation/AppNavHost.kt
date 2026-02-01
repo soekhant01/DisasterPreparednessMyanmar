@@ -76,7 +76,10 @@ fun AppNavHost(modifier: Modifier = Modifier, navController: NavHostController) 
         composable(
             route = "add_report"
         ) {
-            AddReportScreen(navController = navController)
+            AddReportScreen(
+                navController = navController,
+                onSubmit = {}
+            )
         }
 
 
