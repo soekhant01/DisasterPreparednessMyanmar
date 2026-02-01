@@ -6,6 +6,7 @@ import com.example.disaster.R
 data class Report(
     val userName: String,
     val date: String,
+    val contact: String,
     val address: String,
     val coordinates: String,
     val description: String,
@@ -14,7 +15,9 @@ data class Report(
 
 val reportList = listOf(
     Report(
-        userName = "Soe Khant", date = "Fri, Jan 31, 2026",
+        userName = "Soe Khant",
+        date = "Fri, Jan 31, 2026",
+        contact = "09957848184",
         address = "Mandalay, 26str, 88 * 86 road, Aung Myay Thar Zan",
         coordinates = "21.982602, 96.085792",
         description = "An earthquake is a sudden shaking of the ground caused by the movement of tectonic plates beneath the Earth's surface. It can vary in intensity, from minor tremors that are barely felt to major quakes that cause widespread destruction. Buildings, bridges, and roads can collapse, leading to injuries or fatalities. Earthquakes may also trigger secondary disasters such as landslides, tsunamis, or fires. People in affected areas should evacuate unsafe structures, follow emergency guidelines, and seek help from local authorities immediately.",
@@ -23,7 +26,10 @@ val reportList = listOf(
 
 
     Report(
-        userName = "Thae Phyu Soe", date = "Fri, Jan 31, 2026",
+        userName = "Thae Phyu Soe",
+        date = "Fri, Jan 31, 2026",
+        contact = "09957848184",
+
         address = "Mandalay, 26str, 88 * 86 road, Aung Myay Thar Zan",
         coordinates = "21.982602, 96.085792",
         description = "An earthquake is a sudden shaking of the ground caused by the movement of tectonic plates beneath the Earth's surface. It can vary in intensity, from minor tremors that are barely felt to major quakes that cause widespread destruction. Buildings, bridges, and roads can collapse, leading to injuries or fatalities. Earthquakes may also trigger secondary disasters such as landslides, tsunamis, or fires. People in affected areas should evacuate unsafe structures, follow emergency guidelines, and seek help from local authorities immediately.",
@@ -31,7 +37,10 @@ val reportList = listOf(
     ),
 
     Report(
-        userName = "Ye Zaw Hlaing", date = "Fri, Jan 31, 2026",
+        userName = "Ye Zaw Hlaing",
+        date = "Fri, Jan 31, 2026",
+        contact = "09957848184",
+
         address = "Mandalay, 26str, 88 * 86 road, Aung Myay Thar Zan",
         coordinates = "21.982602, 96.085792",
         description = "An earthquake is a sudden shaking of the ground caused by the movement of tectonic plates beneath the Earth's surface. It can vary in intensity, from minor tremors that are barely felt to major quakes that cause widespread destruction. Buildings, bridges, and roads can collapse, leading to injuries or fatalities. Earthquakes may also trigger secondary disasters such as landslides, tsunamis, or fires. People in affected areas should evacuate unsafe structures, follow emergency guidelines, and seek help from local authorities immediately.",
@@ -39,7 +48,10 @@ val reportList = listOf(
     ),
 
     Report(
-        userName = "Aung Thaw", date = "Fri, Jan 31, 2026",
+        userName = "Aung Thaw",
+        date = "Fri, Jan 31, 2026",
+        contact = "09957848184",
+
         address = "Mandalay, 26str, 88 * 86 road, Aung Myay Thar Zan",
         coordinates = "21.982602, 96.085792",
         description = "An earthquake is a sudden shaking of the ground caused by the movement of tectonic plates beneath the Earth's surface. It can vary in intensity, from minor tremors that are barely felt to major quakes that cause widespread destruction. Buildings, bridges, and roads can collapse, leading to injuries or fatalities. Earthquakes may also trigger secondary disasters such as landslides, tsunamis, or fires. People in affected areas should evacuate unsafe structures, follow emergency guidelines, and seek help from local authorities immediately.",
@@ -47,7 +59,10 @@ val reportList = listOf(
     ),
 
     Report(
-        userName = "Zin Min Thet", date = "Fri, Jan 31, 2026",
+        userName = "Zin Min Thet",
+        date = "Fri, Jan 31, 2026",
+        contact = "09957848184",
+
         address = "Mandalay, 26str, 88 * 86 road, Aung Myay Thar Zan",
         coordinates = "21.982602, 96.085792",
         description = "An earthquake is a sudden shaking of the ground caused by the movement of tectonic plates beneath the Earth's surface. It can vary in intensity, from minor tremors that are barely felt to major quakes that cause widespread destruction. Buildings, bridges, and roads can collapse, leading to injuries or fatalities. Earthquakes may also trigger secondary disasters such as landslides, tsunamis, or fires. People in affected areas should evacuate unsafe structures, follow emergency guidelines, and seek help from local authorities immediately.",
@@ -55,7 +70,10 @@ val reportList = listOf(
     ),
 
     Report(
-        userName = "Lin Zaw Aung", date = "Fri, Jan 31, 2026",
+        userName = "Lin Zaw Aung",
+        date = "Fri, Jan 31, 2026",
+        contact = "09957848184",
+
         address = "Mandalay, 26str, 88 * 86 road, Aung Myay Thar Zan",
         coordinates = "21.982602, 96.085792",
         description = "An earthquake is a sudden shaking of the ground caused by the movement of tectonic plates beneath the Earth's surface. It can vary in intensity, from minor tremors that are barely felt to major quakes that cause widespread destruction. Buildings, bridges, and roads can collapse, leading to injuries or fatalities. Earthquakes may also trigger secondary disasters such as landslides, tsunamis, or fires. People in affected areas should evacuate unsafe structures, follow emergency guidelines, and seek help from local authorities immediately.",
@@ -63,7 +81,10 @@ val reportList = listOf(
     ),
 
     Report(
-        userName = "Kyaw Than", date = "Fri, Jan 31, 2026",
+        userName = "Kyaw Than",
+        date = "Fri, Jan 31, 2026",
+        contact = "09957848184",
+
         address = "Mandalay, 26str, 88 * 86 road, Aung Myay Thar Zan",
         coordinates = "21.982602, 96.085792",
         description = "An earthquake is a sudden shaking of the ground caused by the movement of tectonic plates beneath the Earth's surface. It can vary in intensity, from minor tremors that are barely felt to major quakes that cause widespread destruction. Buildings, bridges, and roads can collapse, leading to injuries or fatalities. Earthquakes may also trigger secondary disasters such as landslides, tsunamis, or fires. People in affected areas should evacuate unsafe structures, follow emergency guidelines, and seek help from local authorities immediately.",

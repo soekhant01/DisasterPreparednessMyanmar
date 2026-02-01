@@ -113,21 +113,21 @@ fun ReportCard(
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
+                text = report.contact,
+                style = MaterialTheme.typography.bodyLarge.copy(
+                    fontWeight = FontWeight.SemiBold
+                ),
+                fontSize = 16.sp
+            )
+
+            Text(
                 text = report.address,
                 style = MaterialTheme.typography.bodyLarge.copy(
                     fontWeight = FontWeight.SemiBold
                 ),
                 fontSize = 16.sp
             )
-//
-//            Text(
-//                text = report.coordinates,
-//                style = MaterialTheme.typography.bodyLarge.copy(
-//                    color = Color(0xFF42A5F5),
-//                    fontWeight = FontWeight.Medium
-//                ),
-//                modifier = Modifier.padding(vertical = 4.dp)
-//            )
+
             Text(
                 text = report.description,
                 style = MaterialTheme.typography.bodyMedium,
