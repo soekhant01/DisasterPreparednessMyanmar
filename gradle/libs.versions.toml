@@ -16,6 +16,11 @@ coil = "3.3.0"
 appcrawlerPlatform = "0.0.1-alpha03"
 material3 = "1.4.0"
 
+accompanistPermissions = "0.36.0"
+playServicesLocation = "21.3.0"
+
+osmdroidAndroid = "6.1.20"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -39,6 +44,10 @@ coil-compose = {module = "io.coil-kt.coil3:coil-compose", version.ref = "coil"}
 coil-okhttp = {module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coil"}
 appcrawler-platform = { group = "com.google.android.appcrawler", name = "appcrawler-platform", version.ref = "appcrawlerPlatform" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistPermissions" }
+play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "playServicesLocation" }
+
+osmdroid-android = { module = "org.osmdroid:osmdroid-android", version.ref = "osmdroidAndroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

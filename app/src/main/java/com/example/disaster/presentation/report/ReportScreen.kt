@@ -79,7 +79,11 @@ fun ReportScreen(modifier: Modifier = Modifier, navController: NavController) {
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(reportList) { report ->
-                ReportCard(report = report)
+                ReportCard(
+                    report = report,
+
+                    navController = navController
+                )
 
             }
         }

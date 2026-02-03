@@ -40,15 +40,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.disaster.R
 import com.example.disaster.data.model.Report
+import com.example.disaster.presentation.navigation.ReportRoute
 import okhttp3.Address
 
 @Composable
 fun ReportCard(
     modifier: Modifier = Modifier,
     report: Report,
-    maxLines: Int = 3
+    maxLines: Int = 3,
+    navController: NavController
 
 ) {
     var isExpanded by rememberSaveable { mutableStateOf(false) }
@@ -141,7 +144,7 @@ fun ReportCard(
                 color = Color(0xFF42A5F5),
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.clickable(
-                        indication = null, // removes ripple
+                    indication = null, // removes ripple
                     interactionSource = remember { MutableInteractionSource() }
                 ) { isExpanded = !isExpanded }
             )
@@ -209,7 +212,14 @@ fun ReportCard(
 
 
             Button(
-                onClick = { /* Handle Accept */ },
+                onClick = {
+                    navController.navigate(
+                        ReportRoute.Map.createRoute(
+                            16.8661,
+                            96.1951,
+                        )
+                    )
+                },
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(12.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF0091FF))

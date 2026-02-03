@@ -13,6 +13,7 @@ import com.example.disaster.presentation.auth.otp.OTPScreen
 import com.example.disaster.presentation.auth.register.RegisterScreen
 import com.example.disaster.presentation.home.HomeScreen
 import com.example.disaster.presentation.onboarding.userdetail.UserDetailInfoScreen
+import com.example.disaster.presentation.util.LocationManager
 import com.example.disaster.ui.theme.DisasterTheme
 
 class MainActivity : ComponentActivity() {
@@ -26,3 +27,4 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+

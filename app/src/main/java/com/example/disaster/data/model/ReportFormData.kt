@@ -7,5 +7,8 @@ data class ReportFormData(
     val contactNumber: String = "",
     val address: String = "",
     val description: String = "",
-    val images: List<Uri> = emptyList()
+    val images: List<Uri> = emptyList(),
+    val latitude: Double? = null,
+    val longitude: Double? = null,
+    val locationName: String? = null
 )

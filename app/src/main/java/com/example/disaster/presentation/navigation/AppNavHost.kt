@@ -3,9 +3,12 @@ package com.example.disaster.presentation.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import androidx.navigation.navigation
+import com.example.disaster.presentation.core.component.OpenStreetMapView
 import com.example.disaster.presentation.home.HomeScreen
 import com.example.disaster.presentation.organization.OrganizationScreen
 import com.example.disaster.presentation.preparedness.DisasterPreparednessDetail
@@ -35,12 +38,32 @@ fun AppNavHost(modifier: Modifier = Modifier, navController: NavHostController) 
             OrganizationScreen(navController = navController)
         }
 
-        composable(
-            route = BottomNavItem.Report.route
+        navigation(
+            route = BottomNavItem.Report.route,
+            startDestination = ReportRoute.List.route
         ) {
+            composable(ReportRoute.List.route) {
+                ReportScreen(
+                    navController = navController
+                )
+            }
 
-            ReportScreen(navController = navController)
+            composable(
+                ReportRoute.Map.route, arguments = listOf(
+                    navArgument("latitude") { type = NavType.FloatType },
+                    navArgument("longitude") { type = NavType.FloatType },
+
+                    )
+            ) { backStackEntry ->
+                val latitude = backStackEntry.arguments?.getFloat("latitude") ?: 0f
+                val longitude = backStackEntry.arguments?.getFloat("longitude") ?: 0f
+                OpenStreetMapView(
+                    latitude = latitude.toDouble(),
+                    longitude = longitude.toDouble(),
+                )
+            }
         }
+
 
         navigation(
             route = "profile",
